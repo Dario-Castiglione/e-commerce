@@ -30,6 +30,10 @@ body {
 }
 
 header {
+  z-index: 9999;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   color: #fff;
   max-height: -webkit-fit-content;
   max-height: -moz-fit-content;
@@ -42,7 +46,6 @@ header {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  position: -webkit-sticky;
   position: sticky;
 }
 
