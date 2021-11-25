@@ -96,36 +96,44 @@ setInterval(() => {
 }, 3000);
 
 //------------------------TESTIMONIAL
-
+const testimonialCart = document.querySelector(".testimonial-card")
 const testimonialWrap = document.querySelector(".testimonial")
 import { dataTestimonial } from "./testimonial.js"
-let counter_1 = 0;
-
+let counter_1 = 1;
+let totTestimonial = 3
+let timeout = 0;
 setInterval(() => {
-
+    
     console.log(dataTestimonial[counter_1].img)
-    testimonialWrap.innerHTML = `        <div class="testimonial-card">
-<span>
+    testimonialWrap.innerHTML = 
+    `        
+    <div class="testimonial-card">
+    <span>
     <img src=${dataTestimonial[counter_1].img} alt="">
-</span>
-<p class="testimonal-text">
+    </span>
+    <p class="testimonal-text">
     <strong>${dataTestimonial[counter_1].name}</strong> <br>
     <span>${dataTestimonial[counter_1].profession}</span>
-</p>
-<div class="stars">⭐⭐⭐⭐⭐</div>
-<p id="testimonial-text">${dataTestimonial[counter_1].description}</p>
-</div>
-`
-    const testimonialCart = document.querySelector(".testimonial-card")
+    </p>
+    <div class="stars">⭐⭐⭐⭐⭐</div>
+    <p id="testimonial-text">${dataTestimonial[counter_1].description}</p>
+    </div>
+    `
+    
+    
     setTimeout(() => {
         testimonialCart.style.animation = "disappear 1s ease";
         testimonialCart.style.left = "-150%";
     }, 4000);
-
+    
     counter_1++
-    if (counter_1 === 3) counter_1 = 0
-
+    if (counter_1 === totTestimonial -1 ) counter_1 = 0
+    
 }, 5000);
+setTimeout(() => {
+    testimonialCart.style.animation = "disappear 1s ease";
+    testimonialCart.style.left = "-150%";
+}, 4000);
 
 
 //------------------------START
