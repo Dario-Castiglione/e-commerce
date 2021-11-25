@@ -80,13 +80,54 @@ function order(array) {
         render(products)
     })
 }
+//------------------------HERO
+const heroImg = document.querySelector(".image-hero")
+
+let counter = 1;
+const totImg = 3;
+const img1 = "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+const img2 = "https://images.unsplash.com/photo-1529720317453-c8da503f2051?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+const img3 = "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" 
+
+
+setInterval(() => {
+  heroImg.style.backgroundImage = `url(${eval("img" + counter)})`
+  counter < totImg ? counter++ : counter = 1
+}, 3000);  
+//------------------------TESTIMONIAL
+const testimonialWrap = document.querySelector(".testimonial")
+import {dataTestimonial} from "./testimonial.js" 
+let counter_1 = 0;
+
+setInterval(() => {
+    
+    console.log(dataTestimonial[counter_1].img)
+    testimonialWrap.innerHTML=`        <div class="testimonial-card">
+<span>
+    <img src=${dataTestimonial[counter_1].img} alt="">
+</span>
+<p class="testimonal-text">
+    <strong>${dataTestimonial[counter_1].name}</strong> <br>
+    <span>${dataTestimonial[counter_1].profession}</span>
+</p>
+<div class="stars">⭐⭐⭐⭐⭐</div>
+<p id="testimonial-text">${dataTestimonial[counter_1].description}</p>
+</div>
+`
+const testimonialCart = document.querySelector(".testimonial-card")
+setTimeout(() => {
+    testimonialCart.style.animation="disappear 1s ease";
+    testimonialCart.style.left="-150%";
+    
+}, 4000);
+counter_1++
+if (counter_1 === 3) counter_1 = 0
+console.log(counter_1)
+
+}, 5000);
 //------------------------START
 
-
-document.addEventListener("DOMContentLoaded", () => {
     loadStorage()
     render(products)
     cart.textContent = `🛒 ${totalCart} $`
     order(products)
-
-})
