@@ -99,13 +99,13 @@ setInterval(() => {
 
 const testimonialWrap = document.querySelector(".testimonial")
 import { dataTestimonial } from "./testimonial.js"
-let counter_1 = 0;
+let counter_1 = 1;
 let totTestimonial = 3
-let timeout = 0;
+
 
 setInterval(() => {
     
-    console.log(dataTestimonial[counter_1].img)
+    console.log(counter_1)
     testimonialWrap.innerHTML = 
     `        
     <div class="testimonial-card">
@@ -127,10 +127,14 @@ setInterval(() => {
     }, 4000);
     
     counter_1++
-    if (counter_1 === totTestimonial -1 ) counter_1 = 0
+    if (counter_1 === totTestimonial  ) counter_1 = 0
     
 }, 5000);
-
+setTimeout(() => {
+    const testimonialCart = document.querySelector(".testimonial-card")
+    testimonialCart.style.animation = "disappear 1s ease";
+    testimonialCart.style.left = "-150%";
+}, 4000);
 
 
 //------------------------START
