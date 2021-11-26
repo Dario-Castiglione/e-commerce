@@ -136,7 +136,22 @@ setTimeout(() => {
     testimonialCart.style.left = "-150%";
 }, 4000);
 
+//------------------------MODALE CART
+const modale = document.querySelector(".modale-cart")
 
+
+cart.addEventListener("click", ()=>{
+    modale.style.display="block";
+    modale.style.height="300px";
+    modale.style.padding="20px";
+})
+modale.addEventListener("mouseleave",()=>{
+    modale.style.height="0";
+    modale.style.padding="0";
+    
+    
+    
+})
 //------------------------START
 
 loadStorage()
